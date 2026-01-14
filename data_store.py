@@ -4,17 +4,11 @@ import os
 
 FILE_NAME = "workouts.csv"
 
+COLUMNS = ["date", "exercise", "category", "reps", "duration", "energy", "notes"]
+
 def init_storage():
     if not os.path.exists(FILE_NAME):
-        pd.DataFrame(columns=[
-            "date",
-            "exercise",
-            "category",
-            "reps",
-            "duration",
-            "energy",
-            "notes"
-        ]).to_csv(FILE_NAME, index=False)
+        pd.DataFrame(columns=COLUMNS).to_csv(FILE_NAME, index=False)
 
 def log_workout(exercise, category, reps, duration, energy, notes):
     init_storage()
@@ -32,4 +26,6 @@ def log_workout(exercise, category, reps, duration, energy, notes):
 
 def load_workouts():
     init_storage()
-    return pd.read_csv(FILE_NAME)
+    df = pd.read_csv(FILE_NAME)
+    df.columns = df.columns.str.strip().str.lower()
+    return df

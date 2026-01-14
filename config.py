@@ -10,13 +10,11 @@ CORE_EXERCISES = [
     "Russian Twists",
     "Bicycle Crunches",
     "Flutter Kicks",
-    "knee ins"
-    "plank dips"
-    "toe touches"
-    "toe taps"
-    "scissor jumps"
-    
-    
+    "Knee Ins",
+    "Plank Dips",
+    "Toe Touches",
+    "Toe Taps",
+    "Scissor Jumps"
 ]
 
 FULL_BODY_EXERCISES = [
@@ -26,10 +24,7 @@ FULL_BODY_EXERCISES = [
     "Jumping Jacks",
     "Burpees",
     "High Knees",
-    "Yoga Flow"
-    "Cardio"
+    "Yoga Flow",
+    "Cardio",
     "Jumping Rope"
-    "High Knees"
-    "Burpees"
-    
 ]

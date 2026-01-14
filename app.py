@@ -14,10 +14,10 @@ st.markdown("---")
 df = load_workouts()
 
 # ---- METRICS ----
-col1, col2, col3 = st.columns(3)
-col1.metric("🔥 Streak", f"{get_streak(df)} days")
-col2.metric("💪 Total Workouts", len(df))
-col3.metric("🎯 Core Sessions", df[df["category"] == "Core"].shape[0])
+c1, c2, c3 = st.columns(3)
+c1.metric("🔥 Streak", f"{get_streak(df)} days")
+c2.metric("💪 Total Workouts", len(df))
+c3.metric("🎯 Core Sessions", df[df["category"] == "Core"].shape[0])
 
 st.markdown("---")
 
@@ -34,11 +34,12 @@ category = "Core" if exercise in CORE_EXERCISES else "Full Body"
 reps = st.number_input("Reps (optional)", 0, step=1)
 duration = st.number_input("Duration (minutes)", 0, step=1)
 energy = st.radio("Energy Level", ["High", "Medium", "Low"])
-notes = st.text_input("Anything you want to note?")
+notes = st.text_input("Notes (optional)")
 
 if st.button("💾 Save Workout"):
     log_workout(exercise, category, reps, duration, energy, notes)
     st.success("Workout saved 💖")
+    st.rerun()
 
 st.markdown("---")
 
