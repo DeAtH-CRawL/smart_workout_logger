@@ -17,6 +17,7 @@ def init_storage():
         ]).to_csv(FILE_NAME, index=False)
 
 def log_workout(exercise, category, reps, duration, energy, notes):
+    init_storage()
     df = pd.read_csv(FILE_NAME)
     df.loc[len(df)] = [
         date.today().isoformat(),
@@ -30,4 +31,5 @@ def log_workout(exercise, category, reps, duration, energy, notes):
     df.to_csv(FILE_NAME, index=False)
 
 def load_workouts():
+    init_storage()
     return pd.read_csv(FILE_NAME)
